@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Title Page</title>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="bower_components/angular-toastr/dist/angular-toastr.css"/>
+		<link rel="stylesheet" type="text/css" href="index.css">
+	</head>
+
+	<body class="container" ng-controller="HomeController as home">
+		<h1 class="text-center">Movie Nerd</h1>
+		<div class="btn input-group">
+			<input ng-model="movie" class="form-control" placeholder="Enter a movie...">
+			<span class="input-group-btn">
+				<button ng-click="home.callMovieApi(movie)" class="btn btn-info" type="button">Go!</button>
+			</span>
+		</div>
+		<div id="repeatBox" class="row" style="text-align: center;">
+    		<div class="col-sm-4" ng-repeat="object in home.movies">
+	        	<div class="clearfix" ng-if="$index % 3 == 0"></div>
+	        	<div class="panel panel-info">
+	            	<div class="panel-heading">{{object.title}}</div>
+	            	<div class=panel-body>
+	            		<div class="form-group">
+	            			<img class="img-square img-responsive" ng-src={{object.image}}>
+	            		</div>
+	            		<p>Filmed in {{object.year}}</p>
+	            		<p><a ng-href="http://www.imdb.com/title/{{object.link}}">
+						Click here to view on IMDB</a>
+	            		</p>
+	            	</div>
+	        	</div>
+    		</div>
+		</div>
+		
+
+
+
+
+
+
+		<!-- jQuery -->
+		<script src="//code.jquery.com/jquery.js"></script>
+		<!-- Bootstrap JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+ 		<script src="app/app.module.js"></script>
+ 		<script src="app/home/home.controller.js"></script>
+	</body>
+</html>
